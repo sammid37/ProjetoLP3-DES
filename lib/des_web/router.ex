@@ -1,4 +1,6 @@
 defmodule DesWeb.Router do
+  alias DesWeb.MusicController
+  alias DesWeb.ArtistController
   use DesWeb, :router
 
   pipeline :browser do
@@ -18,6 +20,8 @@ defmodule DesWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/artists", ArtistController
+    resources "/musics", MusicController
   end
 
   # Other scopes may use custom stacks.
