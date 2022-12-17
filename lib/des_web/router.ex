@@ -1,6 +1,4 @@
 defmodule DesWeb.Router do
-  alias DesWeb.MusicController
-  alias DesWeb.ArtistController
   use DesWeb, :router
 
   pipeline :browser do
