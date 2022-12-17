@@ -1,0 +1,33 @@
+<h1>Show Music</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @music.title %>
+  </li>
+
+  <li>
+    <strong>Album:</strong>
+    <%= @music.album %>
+  </li>
+
+  <li>
+    <strong>Release:</strong>
+    <%= @music.release %>
+  </li>
+
+  <li>
+    <strong>Genre:</strong>
+    <%= @music.genre %>
+  </li>
+
+  <li>
+    <strong>Artist:</strong>
+    <%= @music.artist_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.music_path(@conn, :edit, @music) %></span> |
+<span><%= link "Back", to: Routes.music_path(@conn, :index) %></span>
