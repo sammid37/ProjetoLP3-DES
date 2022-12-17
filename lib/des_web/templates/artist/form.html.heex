@@ -10,7 +10,11 @@
   <%= error_tag f, :name %>
 
   <%= label f, :birth %>
-  <%= date_select f, :birth %>
+  <%= date_select f,
+    :birth,
+      year: [options: 1900..2022],
+      class: "form-control"
+   %>
   <%= error_tag f, :birth %>
 
   <%= label f, :country %>

@@ -11,7 +11,8 @@ defmodule DesWeb.MusicController do
 
   def new(conn, _params) do
     changeset = Discography.change_music(%Music{})
-    render(conn, "new.html", changeset: changeset)
+    artists = Discography.list_artists()
+    render(conn, "new.html", changeset: changeset, artists: artists)
   end
 
   def create(conn, %{"music" => music_params}) do
@@ -34,7 +35,8 @@ defmodule DesWeb.MusicController do
   def edit(conn, %{"id" => id}) do
     music = Discography.get_music!(id)
     changeset = Discography.change_music(music)
-    render(conn, "edit.html", music: music, changeset: changeset)
+    artists = Discography.list_artists()
+    render(conn, "edit.html", music: music, changeset: changeset, artists: artists)
   end
 
   def update(conn, %{"id" => id, "music" => music_params}) do

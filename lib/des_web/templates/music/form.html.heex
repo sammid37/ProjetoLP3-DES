@@ -21,9 +21,12 @@
   <%= text_input f, :genre %>
   <%= error_tag f, :genre %>
 
-  <%= label f, :artist_id %>
-  <%= number_input f, :artist_id %>
-  <%= error_tag f, :artist_id %>
+  <label for="music_artist_id">Artist:</label>
+  <select name="music[artist_id]" id="music_artist_id">
+    <%= for artist <- @artists do %>
+      <option value="{artist.id}"><%= artist.name %></option>
+    <%= end %>
+  </select>
 
   <div>
     <%= submit "Save" %>
