@@ -3,11 +3,11 @@ defmodule Des.Discography.Music do
   import Ecto.Changeset
 
   schema "musics" do
-    field :album, :string
-    field :artist_id, :integer
-    field :genre, :string
-    field :release, :integer
     field :title, :string
+    field :release, :integer
+    field :album, :string
+    field :genre, :string
+    field :artist_id, :id
 
     timestamps()
   end

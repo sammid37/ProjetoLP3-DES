@@ -1,32 +1,48 @@
-<h1>Listing Artists</h1>
-
 <table>
+  <!-- linha superior
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Birth</th>
-      <th>Country</th>
-      <th>Picture</th>
-
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
-  <tbody>
-<%= for artist <- @artists do %>
-    <tr>
-      <td><%= artist.name %></td>
-      <td><%= artist.birth %></td>
-      <td><%= artist.country %></td>
-      <td><%= artist.picture %></td>
+  -->
+<tbody>
+    <a href={Routes.artist_path(@conn, :new)} class="new_item_button">
+      <img src={Routes.static_path(@conn, "/images/add.png")}/>
+      Add new artist
+    </a>
 
-      <td>
-        <span><%= link "Show", to: Routes.artist_path(@conn, :show, artist) %></span>
-        <span><%= link "Edit", to: Routes.artist_path(@conn, :edit, artist) %></span>
-        <span><%= link "Delete", to: Routes.artist_path(@conn, :delete, artist), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
+    <%= for artist <- @artists do %>
+        <tr>
+          <td>
+            <div class="item_container"> 
+
+              <div class="cd_container">
+                <div class="cd_thumb">
+                </div><!--cd thumb-->
+
+                <div class="cd_cover">
+                  <img src={artist.picture} class="cd_cover_thumbnail"/>
+                  <img src={Routes.static_path(@conn, "/images/cd-cover-texture.png")} class="cd-cover-texture"/>
+                </div><!--cd cover-->
+              </div><!--cd container-->
+
+              <div class="info_container">
+                <span class="item_titulo"><%= link artist.name, to: Routes.artist_path(@conn, :show, artist) %></span><br>
+                <span class="item_info"><%= artist.birth %></span><br>
+                <span class="item_info"><%= artist.country %></span><br>
+
+                <span class="item_link"><%= link "Show", to: Routes.artist_path(@conn, :show, artist) %></span>
+                <span class="item_link"><%= link "Edit", to: Routes.artist_path(@conn, :edit, artist) %></span>
+                <span class="item_link"><%= link "Delete", to: Routes.artist_path(@conn, :delete, artist), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              </div><!--info_container-->
+            </div><!--item_container-->
+          </td>
+        </tr>
+    <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Artist", to: Routes.artist_path(@conn, :new) %></span>
