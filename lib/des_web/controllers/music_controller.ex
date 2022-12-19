@@ -6,7 +6,8 @@ defmodule DesWeb.MusicController do
 
   def index(conn, _params) do
     musics = Discography.list_musics()
-    render(conn, "index.html", musics: musics)
+    artists = Discography.list_artists()
+    render(conn, "index.html", musics: musics, artists: artists)
   end
 
   def new(conn, _params) do
@@ -29,7 +30,8 @@ defmodule DesWeb.MusicController do
 
   def show(conn, %{"id" => id}) do
     music = Discography.get_music!(id)
-    render(conn, "show.html", music: music)
+    artist = Discography.get_artist!(music.artist_id)
+    render(conn, "show.html", music: music, artist: artist)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -61,4 +63,11 @@ defmodule DesWeb.MusicController do
     |> put_flash(:info, "Music deleted successfully.")
     |> redirect(to: Routes.music_path(conn, :index))
   end
+
+  def map([], _f), do: []
+  def map(_h, []), do: []
+  def map([], []), do: []
+  def map([h | t], f), do: [ f.(h) | map(t, f) ]
+
+
 end

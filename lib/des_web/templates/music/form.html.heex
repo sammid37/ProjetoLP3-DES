@@ -15,7 +15,7 @@
     <%= error_tag f, :album %>
 
     <%= label f, :release %>
-    <%= number_input f, :release %>
+    <%= select f, :release, 1900..2022 %>
     <%= error_tag f, :release %>
 
     <%= label f, :genre %>

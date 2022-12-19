@@ -19,7 +19,12 @@
       <td><%= music.album %></td>
       <td><%= music.release %></td>
       <td><%= music.genre %></td>
-      <td><%= music.artist_id %></td>
+
+      <td>
+        <%= for artist <- @artists do %>
+          <%= if (music.artist_id==artist.id), do: artist.name %>
+        <% end %>
+      </td>
 
       <td>
         <span><%= link "Show", to: Routes.music_path(@conn, :show, music) %></span>
