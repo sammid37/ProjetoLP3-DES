@@ -25,7 +25,7 @@
     <label for="music_artist_id">Artist:</label>
     <select name="music[artist_id]" id="music_artist_id">
       <%= for artist <- @artists do %>
-        <option value="{artist.id}"><%= artist.name %></option>
+        <option value={artist.id}><%= artist.name %></option>
       <% end %>
     </select>
 
