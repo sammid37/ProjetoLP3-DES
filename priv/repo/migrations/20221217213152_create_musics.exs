@@ -7,9 +7,11 @@ defmodule Des.Repo.Migrations.CreateMusics do
       add :album, :string
       add :release, :integer
       add :genre, :string
-      add :artist_id, :integer
+      add :artist_id, references(:artists, on_delete: :nothing)
 
       timestamps()
     end
+
+    create index(:musics, [:artist_id])
   end
 end
