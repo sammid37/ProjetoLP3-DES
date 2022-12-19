@@ -1,39 +1,77 @@
-<h1>Listing Musics</h1>
-
 <table>
   <thead>
     <tr>
+    <!--
       <th>Title</th>
       <th>Album</th>
       <th>Release</th>
       <th>Genre</th>
       <th>Artist</th>
-
       <th></th>
+      -->
+      
     </tr>
   </thead>
+
   <tbody>
-<%= for music <- @musics do %>
-    <tr>
-      <td><%= music.title %></td>
-      <td><%= music.album %></td>
-      <td><%= music.release %></td>
-      <td><%= music.genre %></td>
+    <a href={Routes.music_path(@conn, :new)} class="new_item_button">
+      <img src={Routes.static_path(@conn, "/images/add.png")}/>
+      New music
+    </a>
 
-      <td>
-        <%= for artist <- @artists do %>
-          <%= if (music.artist_id==artist.id), do: artist.name %>
-        <% end %>
-      </td>
+    <%= for music <- @musics do %>
+        <tr>
+          <td>
+            <div class="item_container"> 
+              <div class="cd_container">
 
-      <td>
-        <span><%= link "Show", to: Routes.music_path(@conn, :show, music) %></span>
-        <span><%= link "Edit", to: Routes.music_path(@conn, :edit, music) %></span>
-        <span><%= link "Delete", to: Routes.music_path(@conn, :delete, music), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
+                <div class="cd_thumb">
+
+                  <!-- CD Image -->
+                  <%= for artist <- @artists do %>
+                    <img src={if (music.artist_id==artist.id), do: artist.picture, else: "" }
+                    class={if (music.artist_id==artist.id), do: "item_thumbnail", else: "null_image" }/>
+                  <% end %>
+                  
+                  <!-- CD Texture -->
+                  <img src={Routes.static_path(@conn, "/images/cd.png")} class="cd-texture"/>
+                  <div style="text-align:center">
+                    <span class="cd_dot">
+                      <span class="cd_innerdot"></span>
+                    </span>
+                  </div>
+                </div><!--cd thumb-->
+
+                <div class="cd_cover">
+                  <%= for artist <- @artists do %>
+                    <img src={if (music.artist_id==artist.id), do: artist.picture, else: "" }
+                    class={if (music.artist_id==artist.id), do: "cd_cover_thumbnail", else: "null_image" }/>
+                  <% end %>
+                  <img src={Routes.static_path(@conn, "/images/cd-cover-texture.png")} class="cd-cover-texture"/>
+                </div><!--cd cover-->
+
+              </div><!--cd container-->
+
+              <div class="info_container">
+                <span class="item_titulo"><%= link music.title, to: Routes.music_path(@conn, :show, music) %></span><br>
+                
+                <%= for artist <- @artists do %>
+                  <span class="item_info"><%= if (music.artist_id==artist.id), do: artist.name %></span>
+                <% end %>
+
+                <span class="item_info"><%= music.album %></span><br>
+                <span class="item_info"><%= music.release %></span><br>
+                <span class="item_info"><%= music.genre %></span><br>
+
+                <br>
+                <span class="item_link"><%= link "Edit", to: Routes.music_path(@conn, :edit, music) %></span>
+                <span class="item_link"><%= link "Delete", to: Routes.music_path(@conn, :delete, music), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              </div><!--info_container-->
+
+            </div><!--item_container-->
+
+          </td>
+        </tr>
+    <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Music", to: Routes.music_path(@conn, :new) %></span>

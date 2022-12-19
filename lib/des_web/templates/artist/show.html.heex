@@ -1,28 +1,25 @@
-<h1>Show Artist</h1>
+<br><br><h1>Artist created:</h1>
 
-<ul>
+<div class="item_container"> 
 
-  <li>
-    <strong>Name:</strong>
-    <%= @artist.name %>
-  </li>
+  <div class="cd_container">
+    <div class="cd_thumb">
+    </div><!--cd thumb-->
 
-  <li>
-    <strong>Birth:</strong>
-    <%= @artist.birth %>
-  </li>
+    <div class="cd_cover">
+      <img src={@artist.picture} class="cd_cover_thumbnail"/>
+      <img src={Routes.static_path(@conn, "/images/cd-cover-texture.png")} class="cd-cover-texture"/>
+    </div><!--cd cover-->
+  </div><!--cd container-->
 
-  <li>
-    <strong>Country:</strong>
-    <%= @artist.country %>
-  </li>
+  <div class="info_container">
+    <span class="item_info"><%= @artist.name %></span><br>
+    <span class="item_info"><%= @artist.birth %></span><br>
+    <span class="item_info"><%= @artist.country %></span><br>
+  </div><!--info_container-->
+</div><!--item_container-->
 
-  <li>
-    <strong>Picture:</strong>
-    <%= @artist.picture %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.artist_path(@conn, :edit, @artist) %></span> |
-<span><%= link "Back", to: Routes.artist_path(@conn, :index) %></span>
+<br><br>
+<span class="item_link"><%= link "Edit", to: Routes.artist_path(@conn, :edit, @artist) %></span> |
+<span class="item_link"><%= link "List all", to: Routes.artist_path(@conn, :index) %></span>|
+<span class="item_link"><%= link "Home", to: "/" %></span>

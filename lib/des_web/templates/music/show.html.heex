@@ -1,33 +1,39 @@
-<h1>Show Music</h1>
+<br><br><h1>Music created:</h1>
 
-<ul>
+<div class="item_container"> 
+  <div class="cd_container">
+    <div class="cd_thumb">
+      <!-- CD Image -->
+      <img src={@artist.picture} class={"item_thumbnail"}/>
+      
+      <!-- CD Texture -->
+      <img src={Routes.static_path(@conn, "/images/cd.png")} class="cd-texture"/>
+      <div style="text-align:center">
+        <span class="cd_dot">
+          <span class="cd_innerdot"></span>
+        </span>
+      </div>
+    </div><!--cd thumb-->
 
-  <li>
-    <strong>Title:</strong>
-    <%= @music.title %>
-  </li>
+    <div class="cd_cover">
+      <img src={@artist.picture} class={"cd_cover_thumbnail"}/>
+      <img src={Routes.static_path(@conn, "/images/cd-cover-texture.png")} class="cd-cover-texture"/>
+    </div><!--cd cover-->
+  </div><!--cd container-->
 
-  <li>
-    <strong>Album:</strong>
-    <%= @music.album %>
-  </li>
+  <div class="info_container">
+    <span class="item_info"><%= @music.title %></span><br>
+    <span class="item_info"><%= @artist.name %></span><br>
+    <span class="item_info"><%= @music.album %></span><br>
+    <span class="item_info"><%= @music.release %></span><br>
+    <span class="item_info"><%= @music.genre %></span><br>
 
-  <li>
-    <strong>Release:</strong>
-    <%= @music.release %>
-  </li>
+    <br>
+  </div><!--info_container-->
 
-  <li>
-    <strong>Genre:</strong>
-    <%= @music.genre %>
-  </li>
+</div><!--item_container-->
 
-  <li>
-    <strong>Artist:</strong>
-    <%= @artist.name %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.music_path(@conn, :edit, @music) %></span> |
-<span><%= link "Back", to: Routes.music_path(@conn, :index) %></span>
+<br><br>
+<span class="item_info"><%= link "Edit", to: Routes.music_path(@conn, :edit, @music) %></span> |
+<span class="item_info"><%= link "List all", to: Routes.music_path(@conn, :index) %></span> |
+<span class="item_link"><%= link "Home", to: "/" %></span>

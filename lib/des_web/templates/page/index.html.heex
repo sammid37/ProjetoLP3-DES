@@ -1,34 +1,48 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "DES" %></h1>
-  <h4>Discografia Eclética e Supimpa</h4>
-</section>
+<div class="index_page">
+  <div class="modal_artists">
+        Artists
+    <img src={Routes.static_path(@conn, "/images/artist_modal.png")} class="cd-texture"/>
 
-<section class="row">
-  <article class="column">
-    <h2>Artists</h2>
-    <ul>
-      <li>
-        <a href="/artists">List all artists</a>
-      </li>
-      <li>
-        <a href="/artists/new">Create new Artists</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Musics</h2>
-    <ul>
-        <li>
-        <a href="/musics">List all musics</a>
-      </li>
-      <li>
-        <a href="musics/new">Create new Musics</a>
-      </li>
-    </ul>
-  </article>
-</section>
-<footer>
-  <p>
-    Made by <a href="https://github.com/diegolrs/">Diego Reis</a>, <a href="https://github.com/Eduarda-Donato/">Eduarda Donato</a> and <a href="https://github.com/sammid37/">Samantha Medeiros</a>.
-  </p>
-</footer>
+    <div class="modal_buttons_container">
+      <div class="modal_footer">
+        <div class="modal_button">
+          <a href="/artists">
+            <img src={Routes.static_path(@conn, "/images/eye.png")}/>
+          </a>
+        </div>
+
+        <div class="modal_button">
+          <a href="/artists/new">
+            <img src={Routes.static_path(@conn, "/images/add-small.png")}/>
+          </a>
+        </div>
+      </div><!--modal_footer-->
+    </div><!--modal_buttons_container-->
+
+  </div><!--modal_artists-->
+
+  <div class="modal_musics">
+        Musics
+    <img src={Routes.static_path(@conn, "/images/music_modal.png")} class="cd-texture"/>
+      <div class="modal_buttons_container">
+        <div class="modal_footer">
+          <div class="modal_button">
+            <a href="/musics">
+              <img src={Routes.static_path(@conn, "/images/eye.png")}/>
+            </a>
+          </div>
+
+          <div class="modal_button">
+            <a href="/musics/new">
+              <img src={Routes.static_path(@conn, "/images/add-small.png")}/>
+            </a>
+          </div>
+        </div><!--modal_footer-->
+      </div><!--modal_buttons_container-->
+  
+  </div><!--modal_musics-->
+
+  <br><br><br>
+  <p> Made by <a href="https://github.com/diegolrs/">Diego Reis</a>, <a href="https://github.com/Eduarda-Donato/">Eduarda Donato</a> and <a href="https://github.com/sammid37/">Samantha Medeiros</a>. 
+  DES - Discografia Eclética e Supimpa. 2022 © All right reserveds.</p>
+</div><!--index_page-->
