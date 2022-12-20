@@ -20,8 +20,4 @@ defmodule Des.Discography.Music do
     |> cast(attrs, [:title, :album, :release, :genre, :artist_id])
     |> validate_required([:title, :album, :release, :genre, :artist_id])
   end
-
-  def get_artist_name(music) do
-    Discography.get_artist!(music.artist_id).name
-  end
 end
