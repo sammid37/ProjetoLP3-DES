@@ -1,5 +1,9 @@
-# DES - Discografia Eclética e Supimpa
-Simple website using the framework Phoenix and the language Elixir. This project was used as the Funcional Programming's class final project at the Federal University of Paraiba (UFPB), at the request of the professor Andrei Formiga, from the Scientific Computer Departament (DCC) of the Informatics Center (CI), UFPB.
+# DES - Discografia Eclética e Supimpa (Eclectic and Awesome Discography)
+Simple website using the framework Phoenix and the language Elixir. DES can edit, remove and update artists and musics that can be created by the user.
+
+
+
+This project was used as the Funcional Programming's class final project at the Federal University of Paraiba (UFPB), at the request of the professor Andrei Formiga, from the Scientific Computer Departament (DCC) of the Informatics Center (CI), UFPB.
 
 ## How to Run
 To start your Phoenix server:
