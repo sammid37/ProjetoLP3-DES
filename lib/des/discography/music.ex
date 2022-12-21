@@ -2,8 +2,6 @@ defmodule Des.Discography.Music do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Des.Discography
-
   schema "musics" do
     field :title, :string
     field :release, :integer
