@@ -26,7 +26,7 @@ Ready to run in production? Please [check phoenix deployment guides](https://hex
 -->
 
 ## How to Create Elements
-<p align="center"><img width="40%" height="40%" src="git_res/modal.png"> <br>(Image: homepage banners)</p>
+<p align="center"><img width="40%" height="40%" src="git_res/modal.png"> <br>(Image: homepage screen banners)</p>
 
 ### How to create an artist
 - You can create an artist by going to the artist banner on the homepage and cliclikng the "+" button.
